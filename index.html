@@ -39,7 +39,7 @@
         .theme-cream { background-color: #fefcbf; color: #1a202c; }
         .theme-blue { background-color: #0a192f; color: #f0f9ff; }
 
-        /* CLEAN WHITE THEME EXACT MATCH WITH IMAGE 7 */
+        /* CLEAN WHITE THEME OVERRIDES */
         .theme-light .bg-slate-800 { background-color: #ffffff !important; border-color: #cbd5e1 !important; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .theme-light .bg-slate-900 { background-color: #e2e8f0 !important; border-color: #cbd5e1 !important; color: #0f172a !important; }
         .theme-light .bg-slate-900\/60 { background-color: #ffffff !important; border-color: #cbd5e1 !important; }
@@ -54,18 +54,15 @@
         .theme-light td { border-color: #e2e8f0 !important; }
         .theme-light th { border-color: #cbd5e1 !important; }
 
-        /* Controls in Light/Cream Theme */
         .theme-light #themeSelector, .theme-cream #themeSelector { background-color: #ffffff !important; color: #0f172a !important; border-color: #cbd5e1 !important; }
         .theme-light #btnRefresh, .theme-cream #btnRefresh { background-color: #334155 !important; color: #ffffff !important; }
         .theme-light .dept-btn-inactive, .theme-cream .dept-btn-inactive { color: #475569 !important; }
 
-        /* Hourly Table High Contrast */
         .theme-light #dayHourlyBody tr, .theme-light #nightHourlyBody tr,
         .theme-cream #dayHourlyBody tr, .theme-cream #nightHourlyBody tr { background-color: #ffffff !important; }
         .theme-light #dayHourlyBody td, .theme-light #nightHourlyBody td,
         .theme-cream #dayHourlyBody td, .theme-cream #nightHourlyBody td { color: #0f172a !important; border-color: #f1f5f9 !important; font-weight: 600; }
 
-        /* Table Header Colors - EXACT MATCH WITH IMAGE 7 */
         .theme-light .bg-gradient-to-r.from-indigo-950, .theme-cream .bg-gradient-to-r.from-indigo-950 { background: #1e293b !important; }
         .theme-light .bg-gradient-to-r.from-indigo-950 h2, .theme-cream .bg-gradient-to-r.from-indigo-950 h2,
         .theme-light .bg-gradient-to-r.from-indigo-950 i, .theme-cream .bg-gradient-to-r.from-indigo-950 i,
@@ -80,6 +77,10 @@
         .theme-light th.bg-blue-950\/50, .theme-cream th.bg-blue-950\/50 { background-color: #dbeafe !important; color: #1e40af !important; }
         .theme-light th.bg-blue-950\/40, .theme-cream th.bg-blue-950\/40 { background-color: #dbeafe !important; color: #1e40af !important; }
         .theme-light th.bg-amber-950\/40, .theme-cream th.bg-amber-950\/40 { background-color: #fef3c7 !important; color: #78350f !important; }
+
+        /* FIXED TRACKER HEADER TEXT CONTRAST IN WHITE THEME */
+        .theme-light .tracker-header-box { background: #0f172a !important; color: #ffffff !important; }
+        .theme-light .tracker-header-box h2, .theme-light .tracker-header-box i { color: #ffffff !important; }
 
         @keyframes pulseGlow {
             0%, 100% { opacity: 1; transform: scale(1); }
@@ -137,9 +138,8 @@
         </div>
     </header>
 
-    <!-- TAB 1: DEPARTMENT REPORT VIEW (EXACTLY MATCHING IMAGE 7) -->
+    <!-- TAB 1: DEPARTMENT REPORT VIEW -->
     <main id="viewReport" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
-        <!-- Controls & Search -->
         <div class="bg-slate-900/90 p-1 rounded-lg border border-slate-700 inline-flex items-center space-x-1">
             <button onclick="setDeptFilter('ALL')" id="btnDeptAll" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-indigo-600 text-white shadow-sm transition-all">All Departments</button>
             <button onclick="setDeptFilter('INBOUND')" id="btnDeptInbound" class="px-3 py-1.5 text-xs font-semibold rounded-md text-slate-300 dept-btn-inactive transition-all">Inbound-Putting</button>
@@ -147,15 +147,11 @@
             <button onclick="setDeptFilter('OUTBOUND')" id="btnDeptOutbound" class="px-3 py-1.5 text-xs font-semibold rounded-md text-slate-300 dept-btn-inactive transition-all">Outbound</button>
         </div>
 
-        <!-- Key Metrics Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            <!-- Box 1 -->
             <div class="bg-slate-800 rounded-xl p-4 border border-indigo-500/30 shadow-md">
                 <div class="flex items-center justify-between">
                     <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Completed Putlist</span>
-                    <div class="p-2 rounded-lg bg-blue-900/40 text-blue-400">
-                        <i class="fa-solid fa-list-check text-sm"></i>
-                    </div>
+                    <div class="p-2 rounded-lg bg-blue-900/40 text-blue-400"><i class="fa-solid fa-list-check text-sm"></i></div>
                 </div>
                 <div class="mt-2">
                     <h3 class="text-4xl font-black text-blue-600 dark:text-blue-400 tracking-tight animate-pulse-glow" id="kpi-total-count">0</h3>
@@ -163,13 +159,10 @@
                 </div>
             </div>
 
-            <!-- Box 2 -->
             <div class="bg-slate-800 rounded-xl p-4 border border-emerald-500/30 shadow-md">
                 <div class="flex items-center justify-between">
                     <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Total Completed QTY</span>
-                    <div class="p-2 rounded-lg bg-emerald-900/40 text-emerald-400">
-                        <i class="fa-solid fa-cubes text-sm"></i>
-                    </div>
+                    <div class="p-2 rounded-lg bg-emerald-900/40 text-emerald-400"><i class="fa-solid fa-cubes text-sm"></i></div>
                 </div>
                 <div class="mt-2">
                     <h3 class="text-4xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight animate-pulse-glow" id="kpi-total-qty">0</h3>
@@ -177,13 +170,10 @@
                 </div>
             </div>
 
-            <!-- Box 3 -->
             <div class="bg-slate-800 rounded-xl p-4 border border-slate-700 shadow-sm">
                 <div class="flex items-center justify-between">
                     <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Day Put-list QTY</span>
-                    <div class="p-2 rounded-lg bg-indigo-900/40 text-indigo-400">
-                        <i class="fa-solid fa-sun text-sm"></i>
-                    </div>
+                    <div class="p-2 rounded-lg bg-indigo-900/40 text-indigo-400"><i class="fa-solid fa-sun text-sm"></i></div>
                 </div>
                 <div class="mt-3">
                     <h3 class="text-2xl font-black text-indigo-600 dark:text-indigo-400" id="kpi-day-qty">0</h3>
@@ -191,13 +181,10 @@
                 </div>
             </div>
 
-            <!-- Box 4 -->
             <div class="bg-slate-800 rounded-xl p-4 border border-slate-700 shadow-sm">
                 <div class="flex items-center justify-between">
                     <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Night Put-list QTY</span>
-                    <div class="p-2 rounded-lg bg-purple-900/40 text-purple-400">
-                        <i class="fa-solid fa-moon text-sm"></i>
-                    </div>
+                    <div class="p-2 rounded-lg bg-purple-900/40 text-purple-400"><i class="fa-solid fa-moon text-sm"></i></div>
                 </div>
                 <div class="mt-3">
                     <h3 class="text-2xl font-black text-purple-600 dark:text-purple-400" id="kpi-night-qty">0</h3>
@@ -205,13 +192,10 @@
                 </div>
             </div>
 
-            <!-- Box 5 -->
             <div class="bg-slate-800 rounded-xl p-4 border border-slate-700 shadow-sm">
                 <div class="flex items-center justify-between">
                     <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Pendency QTY</span>
-                    <div class="p-2 rounded-lg bg-rose-900/40 text-rose-400">
-                        <i class="fa-solid fa-triangle-exclamation text-sm"></i>
-                    </div>
+                    <div class="p-2 rounded-lg bg-rose-900/40 text-rose-400"><i class="fa-solid fa-triangle-exclamation text-sm"></i></div>
                 </div>
                 <div class="mt-3">
                     <h3 class="text-2xl font-black text-rose-600 dark:text-rose-400" id="kpi-pendency-qty">0</h3>
@@ -220,7 +204,6 @@
             </div>
         </div>
 
-        <!-- SEARCH BAR -->
         <div class="flex items-center justify-between gap-4 bg-slate-800 p-3 rounded-xl border border-slate-700">
             <div class="relative flex-1 max-w-md">
                 <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
@@ -233,16 +216,14 @@
 
         <!-- REPORT TABLES -->
         <div class="grid grid-cols-1 gap-6">
-            <!-- Table 1: Day & Night Putaway Report -->
+            <!-- Table 1: Day & Night Putaway Report (Sorted Descending by Total Qty) -->
             <div class="bg-slate-800 rounded-xl border border-slate-700 shadow-md overflow-hidden">
                 <div class="bg-gradient-to-r from-indigo-950 via-slate-800 to-slate-800 px-6 py-3.5 border-b border-slate-700 flex justify-between items-center">
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-table-list text-indigo-400 text-sm"></i>
                         <h2 class="text-base font-bold text-white tracking-wide">Day & Night Putaway Report</h2>
                     </div>
-                    <div class="text-xs text-slate-400">
-                        Date: <span id="reportDate" class="font-bold text-indigo-300">--</span>
-                    </div>
+                    <div class="text-xs text-slate-400">Date: <span id="reportDate" class="font-bold text-indigo-300">--</span></div>
                 </div>
                 <div class="overflow-x-auto custom-scrollbar">
                     <table class="w-full text-left border-collapse text-xs">
@@ -372,8 +353,8 @@
 
                 <div class="bg-slate-900 p-1 rounded-lg border border-slate-700 flex items-center space-x-1">
                     <button onclick="setMpShiftFilter('ALL')" id="btnMpShiftAll" class="px-3 py-1.5 text-xs font-bold rounded-md bg-emerald-600 text-white shadow-sm transition-all"><i class="fa-solid fa-layer-group"></i> All Shifts</button>
-                    <button onclick="setMpShiftFilter('DAY')" id="btnMpShiftDay" class="px-3 py-1.5 text-xs font-bold rounded-md text-slate-300 transition-all"><i class="fa-solid fa-sun text-amber-400"></i> Day</button>
-                    <button onclick="setMpShiftFilter('NIGHT')" id="btnMpShiftNight" class="px-3 py-1.5 text-xs font-bold rounded-md text-slate-300 transition-all"><i class="fa-solid fa-moon text-purple-400"></i> Night</button>
+                    <button onclick="setMpShiftFilter('DAY')" id="btnMpShiftDay" class="px-3 py-1.5 text-xs font-bold rounded-md text-slate-300 transition-all"><i class="fa-solid fa-sun text-amber-400"></i> Day (09:30-18:30)</button>
+                    <button onclick="setMpShiftFilter('NIGHT')" id="btnMpShiftNight" class="px-3 py-1.5 text-xs font-bold rounded-md text-slate-300 transition-all"><i class="fa-solid fa-moon text-purple-400"></i> Night (20:00-05:00)</button>
                 </div>
             </div>
 
@@ -430,7 +411,7 @@
             </div>
         </div>
 
-        <!-- NEWLY ADDED DASHBOARD: ASSOCIATE OVERALL PERFORMANCE SUMMARY TABLE (BELOW HOURLY MATRIX) -->
+        <!-- ASSOCIATE OVERALL PERFORMANCE SUMMARY TABLE -->
         <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden shadow-md">
             <div class="bg-gradient-to-r from-indigo-950 via-slate-800 to-slate-800 px-6 py-3.5 border-b border-slate-700 flex justify-between items-center">
                 <div class="flex items-center gap-2">
@@ -453,6 +434,32 @@
                     </thead>
                     <tbody id="mpSummaryTableBody" class="divide-y divide-slate-700/60 font-medium text-slate-200"></tbody>
                     <tfoot id="mpSummaryTableFoot" class="bg-slate-900 font-bold text-white border-t-2 border-slate-600"></tfoot>
+                </table>
+            </div>
+        </div>
+
+        <!-- TIME COMPLIANCE & WASTED TIME TRACKING REPORT (FIXED VISIBILITY & SORTING) -->
+        <div class="bg-slate-800 rounded-xl border border-amber-500/40 overflow-hidden shadow-md">
+            <div class="tracker-header-box bg-slate-900 px-6 py-3.5 border-b border-slate-700 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-user-clock text-amber-400 text-sm"></i>
+                    <h2 class="text-base font-bold text-white tracking-wide">Manpower Time Compliance & Early Stop Wasted Time Tracker</h2>
+                </div>
+                <span class="text-xs text-amber-400 font-bold bg-amber-950/60 px-2.5 py-1 rounded border border-amber-700"><i class="fa-solid fa-bell mr-1"></i> Target: Lunch & Shift End Stop Detection</span>
+            </div>
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-900 text-slate-300 font-bold border-b border-slate-700 text-center">
+                            <th class="py-3 px-4 text-left border-r border-slate-700 min-w-[120px]">Employee ID</th>
+                            <th class="py-3 px-4 text-left border-r border-slate-700 min-w-[180px]">Name (Col U)</th>
+                            <th class="py-3 px-4 border-r border-slate-700 min-w-[140px] text-indigo-400">1st Putlist Closed Time</th>
+                            <th class="py-3 px-4 border-r border-slate-700 min-w-[160px] text-amber-400">Before Lunch Close Putlist Time</th>
+                            <th class="py-3 px-4 border-r border-slate-700 min-w-[180px] text-rose-400">Before Shift End Close Putlist Time</th>
+                            <th class="py-3 px-4 min-w-[150px] text-emerald-400">Wasted Time / Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mpComplianceTableBody" class="divide-y divide-slate-700/60 font-medium text-slate-200"></tbody>
                 </table>
             </div>
         </div>
@@ -687,6 +694,7 @@
             renderCharts();
         }
 
+        /* REPORT TABLE: SORTED DESCENDING BY TOTAL QTY */
         function renderPutawayTable(searchQuery) {
             const tbody = document.getElementById('putawayTableBody');
             const tfoot = document.getElementById('putawayTableFoot');
@@ -694,7 +702,10 @@
             tbody.innerHTML = '';
 
             let totalDayCount = 0, totalDayQty = 0, totalNightCount = 0, totalNightQty = 0;
-            const filtered = putawayDeptData.filter(item => matchesDept(item.dept) && item.source.toLowerCase().includes(searchQuery));
+            let filtered = putawayDeptData.filter(item => matchesDept(item.dept) && item.source.toLowerCase().includes(searchQuery));
+
+            // DESCENDING SORTING BY TOTAL QTY
+            filtered.sort((a, b) => (b.dayQty + b.nightQty) - (a.dayQty + a.nightQty));
 
             filtered.forEach(item => {
                 totalDayCount += item.dayCount; totalDayQty += item.dayQty;
@@ -846,7 +857,7 @@
             });
         }
 
-        /* DYNAMIC SHIFT-BASED HOURLY MATRIX & ASSOCIATE OVERALL SUMMARY TABLE */
+        /* MANPOWER TRACKING, HOURLY MATRIX & SORTED COMPLIANCE REPORT */
         function renderManpowerTracking() {
             if (!rawSheetRows || rawSheetRows.length < 2) return;
 
@@ -856,12 +867,15 @@
             
             const summaryTbody = document.getElementById('mpSummaryTableBody');
             const summaryTfoot = document.getElementById('mpSummaryTableFoot');
+            const complianceTbody = document.getElementById('mpComplianceTableBody');
+            
             const searchQuery = (document.getElementById('searchMpInput')?.value || '').toLowerCase().trim();
 
-            if (!tbody || !headerTr || !summaryTbody || !summaryTfoot) return;
+            if (!tbody || !headerTr || !summaryTbody || !summaryTfoot || !complianceTbody) return;
             tbody.innerHTML = '';
             headerTr.innerHTML = '';
             summaryTbody.innerHTML = '';
+            complianceTbody.innerHTML = '';
 
             let hoursList = [];
             if (activeMpShift === 'NIGHT') {
@@ -892,7 +906,7 @@
 
             const headers = rawSheetRows[0].map(h => String(h || '').trim().toLowerCase());
             
-            // STRICT MAPPING TO COLUMN U (INDEX 20)
+            // STRICT MAPPING TO COLUMN U (INDEX 20) FOR NAME & COLUMN F (INDEX 5) FOR EMP ID
             let idxUser = 20; 
             if (headers.length > 20 && headers[20].includes('completed')) {
                 idxUser = 20;
@@ -901,11 +915,15 @@
                 if (idxUser === -1) idxUser = 20;
             }
 
+            let idxEmpId = headers.indexOf('completed_by');
+            if (idxEmpId === -1) idxEmpId = 5;
+
             const idxStatus = headers.indexOf('status');
             const idxQty = headers.indexOf('quantity');
             const idxCompHr = headers.indexOf('coformation hours');
             const idxDept = headers.indexOf('department');
             const idxShift = headers.indexOf('coformation shift');
+            const idxCompTime = headers.indexOf('completed hr');
 
             const associateMap = {};
 
@@ -914,8 +932,8 @@
                 if (!row || !Array.isArray(row)) continue;
 
                 let name = String(row[idxUser] || '').trim();
+                let empId = String(row[idxEmpId !== -1 ? idxEmpId : 5] || 'N/A').trim();
 
-                // FILTER OUT INVALID / NON-NAME ROWS
                 if (!name || name.toUpperCase() === 'N/A' || name.toLowerCase() === 'null' || name.toLowerCase() === 'undefined' || name.toLowerCase().startsWith('ca.')) {
                     continue; 
                 }
@@ -928,9 +946,19 @@
 
                 const qty = Number(row[idxQty !== -1 ? idxQty : 7]) || 0;
                 const hour = Number(row[idxCompHr !== -1 ? idxCompHr : 13]);
+                const timeStr = String(row[idxCompTime !== -1 ? idxCompTime : 9] || '').trim();
 
                 if (!associateMap[name]) {
-                    associateMap[name] = { name: name, dept: dept, totalQty: 0, totalLists: 0, hourlyQty: {} };
+                    associateMap[name] = { 
+                        empId: empId, 
+                        name: name, 
+                        dept: dept, 
+                        shift: shiftVal,
+                        totalQty: 0, 
+                        totalLists: 0, 
+                        hourlyQty: {},
+                        timestamps: [] 
+                    };
                     hoursList.forEach(slot => associateMap[name].hourlyQty[slot.hr] = 0);
                 }
 
@@ -938,6 +966,10 @@
                 associateMap[name].totalLists += 1;
                 if (associateMap[name].hourlyQty[hour] !== undefined) {
                     associateMap[name].hourlyQty[hour] += qty;
+                }
+
+                if (timeStr && timeStr !== 'N/A') {
+                    associateMap[name].timestamps.push({ time: timeStr, hour: hour });
                 }
             }
 
@@ -950,6 +982,7 @@
 
             let grandTotalQty = 0;
             let grandTotalLists = 0;
+            const complianceData = [];
 
             associatesList.forEach((assoc, index) => {
                 grandTotalQty += assoc.totalQty;
@@ -966,7 +999,7 @@
 
                 const avgPerHr = activeHoursCount > 0 ? Math.round(assoc.totalQty / activeHoursCount) : 0;
 
-                // 1. Render Matrix Row
+                // 1. Matrix Row
                 const trMatrix = document.createElement('tr');
                 trMatrix.className = 'hover:bg-slate-700/30 border-b border-slate-700 text-center';
                 trMatrix.innerHTML = `
@@ -977,7 +1010,7 @@
                 `;
                 tbody.appendChild(trMatrix);
 
-                // 2. Render Overall Summary Table Row (Below Hourly Matrix)
+                // 2. Performance Summary Table Row
                 const avgPerList = assoc.totalLists > 0 ? Math.round(assoc.totalQty / assoc.totalLists) : 0;
                 const trSummary = document.createElement('tr');
                 trSummary.className = 'hover:bg-slate-700/30 border-b border-slate-700/60 text-center';
@@ -990,12 +1023,94 @@
                     <td class="py-2.5 px-4 font-black text-purple-400">${avgPerList.toLocaleString()}</td>
                 `;
                 summaryTbody.appendChild(trSummary);
+
+                // 3. COMPLIANCE & EARLY LUNCH LOGIC
+                let firstTime = '--';
+                let beforeLunchTime = '99:99:99'; // Default for sorting
+                let displayLunchTime = '--';
+                let beforeShiftEndTime = '--';
+                let isEarlyStop = false;
+                let wastedMins = 0;
+
+                if (assoc.timestamps.length > 0) {
+                    assoc.timestamps.sort((a, b) => a.time.localeCompare(b.time));
+                    firstTime = assoc.timestamps[0].time;
+
+                    const isNightShift = assoc.shift.toLowerCase().includes('night');
+                    const lunchTargetHour = isNightShift ? 23 : 13;
+                    
+                    const lunchStamps = assoc.timestamps.filter(t => t.hour < lunchTargetHour);
+                    if (lunchStamps.length > 0) {
+                        beforeLunchTime = lunchStamps[lunchStamps.length - 1].time;
+                        displayLunchTime = beforeLunchTime;
+
+                        const parts = beforeLunchTime.split(':');
+                        if (parts.length >= 2) {
+                            const lastMins = Number(parts[0]) * 60 + Number(parts[1]);
+                            const cutoffMins = isNightShift ? (22 * 60 + 50) : (12 * 60 + 50); // 12:50 PM or 22:50 PM Cutoff
+                            const targetMins = lunchTargetHour * 60;
+
+                            if (lastMins < cutoffMins) {
+                                isEarlyStop = true; // Stopped before 12:50 / 22:50 -> RED ROW
+                                wastedMins = targetMins - lastMins;
+                            } else {
+                                isEarlyStop = false; // Stopped within 10 min window (12:50-13:00) -> GREEN ROW
+                            }
+                        }
+                    }
+
+                    beforeShiftEndTime = assoc.timestamps[assoc.timestamps.length - 1].time;
+                }
+
+                complianceData.push({
+                    empId: assoc.empId,
+                    name: assoc.name,
+                    firstTime: firstTime,
+                    beforeLunchTime: beforeLunchTime,
+                    displayLunchTime: displayLunchTime,
+                    beforeShiftEndTime: beforeShiftEndTime,
+                    isEarlyStop: isEarlyStop,
+                    wastedMins: wastedMins
+                });
+            });
+
+            // SORT COMPLIANCE DATA BY LUNCH CLOSE TIME (EARLIEST ON TOP)
+            complianceData.sort((a, b) => a.beforeLunchTime.localeCompare(b.beforeLunchTime));
+
+            // RENDER COMPLIANCE ROWS WITH STRICT COLOR CODING
+            complianceData.forEach(item => {
+                let rowBgClass = '';
+                let statusBadge = '';
+
+                if (item.displayLunchTime === '--') {
+                    rowBgClass = 'bg-slate-800/40';
+                    statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-slate-700 text-slate-300 font-bold">No Data</span>`;
+                } else if (item.isEarlyStop) {
+                    // RED ROW FOR EARLY STOP (BEFORE 12:50 / 22:50)
+                    rowBgClass = 'bg-rose-500/20 dark:bg-rose-950/40 border-l-4 border-l-rose-500';
+                    statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-rose-600 text-white font-extrabold">${item.wastedMins} mins Early Stop</span>`;
+                } else {
+                    // GREEN ROW FOR ON-TIME (10 MIN GAP: 12:50-13:00 / 22:50-23:00)
+                    rowBgClass = 'bg-emerald-500/20 dark:bg-emerald-950/40 border-l-4 border-l-emerald-500';
+                    statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-emerald-600 text-white font-extrabold">On-Time (10m Gap)</span>`;
+                }
+
+                const trCompliance = document.createElement('tr');
+                trCompliance.className = `${rowBgClass} hover:opacity-90 border-b border-slate-700/60 text-center transition-all`;
+                trCompliance.innerHTML = `
+                    <td class="py-2.5 px-4 text-left font-bold border-r border-slate-700 text-slate-300">${item.empId}</td>
+                    <td class="py-2.5 px-4 text-left font-bold border-r border-slate-700 text-indigo-400">${item.name}</td>
+                    <td class="py-2.5 px-4 border-r border-slate-700 font-bold text-indigo-300">${item.firstTime}</td>
+                    <td class="py-2.5 px-4 border-r border-slate-700 font-black ${item.isEarlyStop ? 'text-rose-400' : 'text-emerald-400'}">${item.displayLunchTime}</td>
+                    <td class="py-2.5 px-4 border-r border-slate-700 font-bold text-rose-300">${item.beforeShiftEndTime}</td>
+                    <td class="py-2.5 px-4">${statusBadge}</td>
+                `;
+                complianceTbody.appendChild(trCompliance);
             });
 
             const totalUsersCount = associatesList.length;
             const avgOutput = totalUsersCount > 0 ? Math.round(grandTotalQty / totalUsersCount) : 0;
 
-            // UPDATE SUMMARY METRICS
             document.getElementById('sum-total-qty').innerText = grandTotalQty.toLocaleString();
             document.getElementById('sum-total-count').innerText = grandTotalLists.toLocaleString();
             document.getElementById('sum-total-users').innerText = totalUsersCount.toLocaleString();
@@ -1003,7 +1118,6 @@
             
             document.getElementById('activeFilterBadge').innerText = `Dept: ${activeMpDepartment} | Shift: ${activeMpShift}`;
 
-            // Summary Table Footer
             summaryTfoot.innerHTML = `
                 <tr class="text-center bg-slate-900">
                     <td class="py-3 px-4 text-left border-r border-slate-700" colspan="3">Overall Manpower Total Summary</td>
